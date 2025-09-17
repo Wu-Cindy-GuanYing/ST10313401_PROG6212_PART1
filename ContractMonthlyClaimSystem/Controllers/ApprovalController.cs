@@ -3,15 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 public class ApprovalController : Controller
 {
-    public IActionResult Index()
+    public IActionResult Index() // Return view with dummy data
     {
-        // Return view with dummy data
         return View();
     }
 
-    public IActionResult Review(int id)
+    public IActionResult Review(int id) // Return view without processing
     {
-        // Return view without processing
         return View();
     }
 

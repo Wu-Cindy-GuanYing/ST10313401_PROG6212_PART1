@@ -10,23 +10,20 @@ public class ClaimController : Controller
         return View();
     }
 
-    public IActionResult Create()
+    public IActionResult Create() // Just return the view, no processing
     {
-        // Just return the view, no processing
         return View();
     }
 
     [HttpPost]
-    public IActionResult Create(Claim model)
+    public IActionResult Create(Claim model)// Instead of processing, just show a message or redirect since it's non-functional
     {
-        // Instead of processing, just show a message or redirect
         TempData["Message"] = "This is a demonstration only. No claim was actually submitted.";
         return RedirectToAction("Index");
     }
 
-    public IActionResult Details(int id)
+    public IActionResult Details(int id) // Return view without fetching real data
     {
-        // Return view without fetching real data
         return View();
     }
 
@@ -36,9 +33,8 @@ public class ClaimController : Controller
     }
 
     [HttpPost]
-    public IActionResult UploadDocument(IFormFile file)
+    public IActionResult UploadDocument(IFormFile file) // Show message instead of actually uploading
     {
-        // Show message instead of actually uploading
         TempData["Message"] = "This is a demonstration only. No file was actually uploaded.";
         return RedirectToAction("Index");
     }
