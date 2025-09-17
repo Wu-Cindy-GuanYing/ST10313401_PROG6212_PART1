@@ -1,2 +1,4 @@
 # ST10313401_PROG6212_PART1
 PROG6212 POE PART 1 ST10313401 CONTRACT MONTHLY CLAIM SYSTEM
+
+The current prototype is non-functional. Serves as UI demonstration only.
