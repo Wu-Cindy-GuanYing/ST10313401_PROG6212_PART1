@@ -29,3 +29,25 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.dashboard .card {
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+    .dashboard .card:hover {
+        transform: translateY(-5px);
+    }
+
+.claim-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+}

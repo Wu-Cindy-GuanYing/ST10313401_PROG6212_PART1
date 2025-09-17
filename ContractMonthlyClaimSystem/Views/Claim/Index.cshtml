@@ -4,6 +4,13 @@
 
 <h2>My Claims</h2>
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <!-- Sample data - non-functional -->
+        <!-- Static dummy data -->
         <tr>
             <td>January 2023</td>
             <td>40</td>

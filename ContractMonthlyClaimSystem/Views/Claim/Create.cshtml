@@ -4,10 +4,10 @@
 
 <h2>Submit New Claim</h2>
 
-<form>
+<form asp-action="Create" method="post">
     <div class="form-group">
         <label for="month">Month</label>
-        <input type="month" class="form-control" id="month" name="month">
+        <input type="month" class="form-control" id="month" name="month" value="2023-03">
     </div>
 
     <h4>Claim Items</h4>
@@ -15,19 +15,19 @@
         <div class="claim-item row mb-2">
             <div class="col-md-3">
                 <label>Date</label>
-                <input type="date" class="form-control">
+                <input type="date" class="form-control" value="2023-03-15">
             </div>
             <div class="col-md-2">
                 <label>Hours</label>
-                <input type="number" class="form-control" step="0.5">
+                <input type="number" class="form-control" step="0.5" value="4">
             </div>
             <div class="col-md-2">
                 <label>Rate ($)</label>
-                <input type="number" class="form-control" step="0.01">
+                <input type="number" class="form-control" step="0.01" value="30">
             </div>
             <div class="col-md-4">
                 <label>Description</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value="Lecture on ASP.NET MVC">
             </div>
             <div class="col-md-1">
                 <label>&nbsp;</label>
@@ -40,10 +40,12 @@
 
     <div class="form-group">
         <label for="documents">Supporting Documents</label>
-        <input type="file" class="form-control" id="documents" multiple>
+        <input type="file" class="form-control" id="documents" multiple disabled>
+        <small class="form-text text-muted">File upload disabled in demonstration mode</small>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit Claim</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
 </form>
 
 @section Scripts {
@@ -61,6 +63,13 @@
                     e.target.closest('.claim-item').remove();
                 }
             }
+        });
+
+        // Prevent form submission in demo mode
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('This is a demonstration only. No claim will be submitted.');
+            this.submit(); // Continue with submission to show the message
         });
     </script>
 }
