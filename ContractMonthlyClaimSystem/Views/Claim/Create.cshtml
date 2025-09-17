@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Submit New Claim";
+}
+
+<h2>Submit New Claim</h2>
+
+<form>
+    <div class="form-group">
+        <label for="month">Month</label>
+        <input type="month" class="form-control" id="month" name="month">
+    </div>
+
+    <h4>Claim Items</h4>
+    <div id="claimItems">
+        <div class="claim-item row mb-2">
+            <div class="col-md-3">
+                <label>Date</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label>Hours</label>
+                <input type="number" class="form-control" step="0.5">
+            </div>
+            <div class="col-md-2">
+                <label>Rate ($)</label>
+                <input type="number" class="form-control" step="0.01">
+            </div>
+            <div class="col-md-4">
+                <label>Description</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-1">
+                <label>&nbsp;</label>
+                <button type="button" class="btn btn-danger remove-item">Remove</button>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="addItem" class="btn btn-secondary mb-3">Add Item</button>
+
+    <div class="form-group">
+        <label for="documents">Supporting Documents</label>
+        <input type="file" class="form-control" id="documents" multiple>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+</form>
+
+@section Scripts {
+    <script>
+        // This would be functional in a real implementation
+        document.getElementById('addItem').addEventListener('click', function() {
+            const newItem = document.querySelector('.claim-item').cloneNode(true);
+            newItem.querySelectorAll('input').forEach(input => input.value = '');
+            document.getElementById('claimItems').appendChild(newItem);
+        });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-item')) {
+                if (document.querySelectorAll('.claim-item').length > 1) {
+                    e.target.closest('.claim-item').remove();
+                }
+            }
+        });
+    </script>
+}
